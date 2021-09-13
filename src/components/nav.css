@@ -1,0 +1,21 @@
+body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: rgb(245, 244, 243);
+        
+}
+
+.menu {
+        display: flex;
+        justify-content: space-between;
+        background-color: rgb(15, 109, 51);
+        padding: 20px;
+}
+
+.menu a {
+        text-decoration: none;
+        font-size: 1rem;
+        color: rgb(238, 220, 196);
+        text-transform: uppercase;
+        text-shadow: 2px 2px black;
+}
+
