@@ -1,14 +1,14 @@
-import Nav from "./components/Nav"
 
+import Header from "./components/header"
+import ItemListContainer from "./components/itemlistcontainer"
 
 
 const App = () => {
     return (
-
-        <header>
-        <p className="brand-tittle">Cocolin Press</p>
-        <Nav/>
-        </header>
+        <>
+        <Header tittle = "Free shipping in orders over 35EU"/>
+        <ItemListContainer titulo="Come and see the whole gallery of characters"/>
+      </>  
     )
 }
 

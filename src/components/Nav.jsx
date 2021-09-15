@@ -1,4 +1,6 @@
 import "./nav.css"
+import "./cartwidget"
+import Cartwidget from "./cartwidget";
 
 const Nav = () => {
     return (
@@ -7,6 +9,7 @@ const Nav = () => {
              <a href="#">Fanzines</a>
              <a href="#">Shop</a>
              <a href="#">About</a>
+             <Cartwidget/>
         </nav>
     )
 }
