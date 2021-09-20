@@ -22,6 +22,7 @@ const App = () => {
   
   const handleAdd = () => {
     setCart(cart + value);
+    setValue(0)
   }
 
 
