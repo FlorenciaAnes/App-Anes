@@ -1,0 +1,9 @@
+body {
+        background-color: rgb(216, 216, 216);   
+}
+
+
+.navbar-collapse {
+       display: flex;
+       flex-grow: 0;
+}

@@ -1,0 +1,13 @@
+import './CartWidget.css'
+
+const CartWidget = ({cart, onAdd}) => {
+return (
+    <div className="cart-widget">
+    <p className="material-icons">add_shopping_cart</p>
+    <span ClassName="number">{cart}</span>
+    </div>
+)
+
+}
+
+export default CartWidget

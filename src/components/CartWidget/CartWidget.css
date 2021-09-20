@@ -1,0 +1,8 @@
+.cart-widget{
+     display: flex;
+     color: white;
+     align-items: center;
+     width: 50px;
+     justify-content: space-around;
+} 
+

@@ -1,14 +1,36 @@
+import Navbar from './components/Navbar/Nav';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import { useState } from 'react';
 
-import Header from "./components/header"
-import ItemListContainer from "./components/itemlistcontainer"
 
 
 const App = () => {
+
+  const [value, setValue] = useState(0);
+  const [cart, setCart] = useState(0);
+
+  const  handleSum=()=> {
+    setValue(value + 1);
+  }
+  
+  const handleSubstract=() => {
+    if(value === 0) {
+      return;
+    }
+    setValue(value - 1);
+  }
+  
+  const handleAdd = () => {
+    setCart(cart + value);
+  }
+
+
     return (
-        <>
-        <Header tittle = "Free shipping in orders over 35EU"/>
-        <ItemListContainer titulo="Come and see the whole gallery of characters"/>
-      </>  
+      <>
+       
+          <Navbar onAdd={handleAdd} cart={cart}/>
+          <ItemListContainer onSum={handleSum} onSubstract={handleSubstract} value={value} onAdd={handleAdd}/>
+      </>
     )
 }
 
