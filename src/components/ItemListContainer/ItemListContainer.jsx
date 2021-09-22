@@ -1,23 +1,36 @@
+import {useEffect, useState} from "react";
+import ItemList from "./ItemList";
 
-const ItemListContainer = ({onSum, onSubstract, value, onAdd})=> {
+const products= [
+{id: 1, 
+title: "Bingo de Bichos", 
+price: 14, 
+pictureUrl: "https://cocolinpress.netlify.app/assets/memotest.jpg",
+description: "Bingo with bugs to learn by playing. From two years old. Up to 6 players" }, 
+]
 
-    return (
-        <div>
-       <div Class="card mt-5ms-5" style={{width: "18rem"}}>
-  <img src="https://cocolinpress.netlify.app/assets/memotest.jpg" Class="card-img-top" alt="..." />
-  <div Class="card-body">
-    <h5 Class="card-title">Bingo de Bichos</h5>
-    <p Class="card-text">Bingo with bugs to learn by playing. From two years old. Up to 6 players</p>
-    <a href="#" Class="btn btn-primary" onClick={onAdd}>Add to Cart</a>
-    <div class="btn-wrapper mt-3">
-    <a href="#" Class="btn btn-danger me-3" onClick={onSubstract} >-</a>
-    <span>{value} </span>
-    <a href="#" Class="btn btn-success me-3" onClick={onSum} > +</a>
-    </div>
-  </div>
-</div>
-        </div>
-    )
+
+const ItemListContainer =({onSum, OnSubstract, valor, onAdd}) => {
+  const [StarterList, setStarterList] = useState ([])
+  
+useEffect(() => {
+  const getItems = new Promise ((res) => {
+    setTimeout (() => {
+      res(products)
+    }, 2000)
+  })
+
+getItems
+.then((resolve) => {
+  setStarterList(resolve)
+})
+
+})
+
+return (
+  <ItemList products = {StarterList}/>
+)
+
 }
 
 export default ItemListContainer; 
