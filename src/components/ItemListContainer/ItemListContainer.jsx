@@ -1,31 +1,57 @@
-import { useState } from "react"
+import { useEffect, useState } from "react";
+import ItemList from "../ItemListContainer/ItemList"
 
 
 
+const products = [
+  {
+    id: 1,
+    title: "Bingo de Bichos",
+    price: 14,
+    pictureUrl: "https://cocolinpress.netlify.app/assets/memotest.jpg",
+    description: "Bingo with bugs to learn by playing. From two years old. Up to 6 players"
+  },
+  {
+    id: 2,
+    title: "Dominó de Emociones",
+    price: 12,
+    pictureUrl: "https://cocolinpress.netlify.app/assets/emociones.jpg",
+    description: "Play with emotions! A domino to have fun and teach children about the different emotions we can go through.The best way to learn is by playing. Number of dominoes: 55 large dominoes"
+  },
+  {
+    id: 3,
+    title: "Dino Habitats",
+    price: 7,
+    pictureUrl: "https://cocolinpress.netlify.app/assets/dinos.jpg",
+    description: "It contains 12 dinosaurs of 3 x 3 cm (approx.) with three-dimensional sticker on the back and a fold-out habitat to stick them in."
+  }
+
+]
 
 
-const ItemListContainer = ({ onSum, onSub, value, onAdd }) => {
+const ItemListContainer = () => {
+  const [StarterList, setStarterList] = useState([])
 
+  useEffect(() => {
+    const getItems = new Promise((res) => {
+      setTimeout(() => {
+        res(products)
+      }, 2000)
+    })
 
+    getItems
+      .then((resolve) => {
+        setStarterList(resolve)
+      })
+
+  })
 
   return (
-    <div>
-      <div Class="card mt-5ms-5" style={{ width: "18rem" }}>
-        <img src="https://cocolinpress.netlify.app/assets/memotest.jpg" Class="card-img-top" alt="" />
-        <div Class="card-body">
-          <h5 Class="card-title">Bingo de Bichos</h5>
-          <p Class="card-text">Bingo with bugs to learn by playing. From two years old. Up to 6 players</p>
-          <a href="#" Class="btn btn-primary" onClick={onAdd} >Add to Cart</a>
-          <div class="btn-wrapper mt-3">
-            <a href="#" class="btn btn-danger me-3" onClick={onSub}>-</a>
-            <span>{value}</span>
-            <a href="#" class="btn btn-success me-3" onClick={onSum}>+</a>
-          </div>
-
-        </div>
-      </div>
-    </div>
+    <>
+      <ItemList products={StarterList} />
+    </>
   )
+
 }
 
-export default ItemListContainer
+export default ItemListContainer;
