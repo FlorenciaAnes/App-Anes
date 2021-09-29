@@ -1,17 +1,30 @@
 import { useState } from "react";
 
 
-const ItemCount = ({stock, initial, onAdd}) => {
+const ItemCount = ({stock, onAdd, onSum, onSub, counter}) => {
 
-const [counter, setCounter] = useState(initial);
 
+const handleSum = () => {
+    if (counter >= stock) {
+        return;
+    }
+ onSum()
+}
+
+
+const handleSub = () => {
+    if (counter ===0) {
+        return;
+    }
+    onSub()
+}
 
 return (
     <>
-    <p>Counter: {counter}</p>
-    <button onClick={() =>{setCounter(counter+1)}}> + </button>
-    <button onClick={() =>{setCounter(counter-1)}}> - </button>
-    <button onClick={() =>{console.log("Your purchase has been added successfully")}}> Add to cart </button>
+    <p>Product: {counter}</p>
+    <button onClick={handleSub}> - </button>
+    <button onClick={console.log("Your purchase has been added successfully"),onAdd}> Add to cart </button>
+    <button onClick={handleSum}> + </button>
     </>
 )
 }

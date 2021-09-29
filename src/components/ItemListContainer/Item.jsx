@@ -2,7 +2,7 @@ import { useState } from 'react';
 import ItemCount from '../ItemListContainer/ItemCount'
 
 
-const Item = ({ product, stock, initial, onAdd }) => {
+const Item = ({ product, onSum, onSub, onAdd, counter }) => {
   return (
 
     <div Class="card-style">
@@ -12,7 +12,7 @@ const Item = ({ product, stock, initial, onAdd }) => {
           <h5 Class="card-title">{product.title}</h5>
           <p Class="card-text">{product.description}</p>
           <h5 class="card-title">{product.price}</h5>
-          <ItemCount stock={10} initial={1} onAdd={() => { }} />
+          <ItemCount stock={10} onAdd={onAdd}  onSum={onSum} onSub={onSub} onAdd={onAdd} counter={counter}/>
         </div>
       </div>
     </div>

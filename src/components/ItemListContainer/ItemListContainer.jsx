@@ -29,7 +29,7 @@ const products = [
 ]
 
 
-const ItemListContainer = () => {
+const ItemListContainer = ({onSub, onAdd, onSum, counter}) => {
   const [StarterList, setStarterList] = useState([])
 
   useEffect(() => {
@@ -48,7 +48,7 @@ const ItemListContainer = () => {
 
   return (
     <>
-      <ItemList products={StarterList} />
+      <ItemList products={StarterList}  onSum={onSum} onSub={onSub} onAdd={onAdd}  counter={counter} />
     </>
   )
 
